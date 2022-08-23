@@ -1,14 +1,14 @@
-## git init --quite
-![](C:\Users\ACER\Documents\Aqua-Developer\day_2_git\screenshoot\git-init-quiet.png)
+**git init --quite**
+![](../screenshoot/git-init-quiet.png)
 
-## git add .
-![](C:\Users\ACER\Documents\Aqua-Developer\day_2_git\screenshoot\git-add.png)
+**git add .**
+![](../screenshoot/git-add.png)
 
-## git status
-![](C:\Users\ACER\Documents\Aqua-Developer\day_2_git\screenshoot\git-status1.png)
+**git status**
+![](../screenshoot/git-status1.png)
 
-## git commit
-![](C:\Users\ACER\Documents\Aqua-Developer\day_2_git\screenshoot\git-commit.png)
+**git commit**
+![](../screenshoot/git-commit.png)
 
-## git push origin master
-![](C:\Users\ACER\Documents\Aqua-Developer\day_2_git\screenshoot\git-push-org-master.png)
+**git push origin master**
+![](../screenshoot/git-push-org-master.png)
