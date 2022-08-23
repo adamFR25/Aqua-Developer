@@ -12,3 +12,6 @@
 
 **git push origin master**
 ![](../screenshoot/git-push-org-master.png)
+
+**git branch new_branch & git branch (list branch)**
+![](../screenshoot/git-branch.png)
