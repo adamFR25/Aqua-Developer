@@ -22,4 +22,5 @@
 **git checkout -b sec_branch**
 ![](../screenshoot/branch-sec_branch.png)
 
-git
+**git stash**
+![](../screenshoot/git-stash.png)
