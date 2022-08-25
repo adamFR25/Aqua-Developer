@@ -1,23 +1,25 @@
 Array
-![](../screenshoot/array-bfr-assign.png)
+![](../screenshoot/array2.png)
 
 Array setelah assign 
-![](../screenshoot/array-afr-assign.png)
+![](../screenshoot/array1.png)
 
 Map
-![](../screenshoot/map-bfr-assign.png)
+![](../screenshoot/map1.png)
 
 Map setelah assign
-![](../screenshoot/map-afr-assign.png)
+![](../screenshoot/map2.png)
 
 slice
-![](../screenshoot/slice-bfr-assign.png)
+![](../screenshoot/slice2.png)
 
 slice setelah assign
-![](../screenshoot/slice-afr-assign.png)
+![](../screenshoot/slice1.png)
 
 struct 
-![](../screenshoot/struct-before-assign.png)
+![](../screenshoot/struct2.png)
 
 struct setelah assign
-![](../screenshoot/struct-after-assign.png)
+![](../screenshoot/struct1.png)
+
+``

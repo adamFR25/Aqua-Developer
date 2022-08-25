@@ -23,4 +23,5 @@ Suatu fungsi yang menyebabkan baris program dieksekusi paling akhir.
 MULTIPLE RETURN
 Merupakan parameter lebih dari 1 hasil dari sebuah function.
 
+~~~~~
 
