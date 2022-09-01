@@ -1,26 +1,26 @@
-**git init --quite**
+## git init --quite
 ![](../screenshoot/git-init-quiet.png)
 
-**git add .**
+## git add .
 ![](../screenshoot/git-add.png)
 
-**git status**
+## git status
 ![](../screenshoot/git-status1.png)
 
-**git commit**
+## git commit
 ![](../screenshoot/git-commit.png)
 
-**git push origin master**
+## git push origin master
 ![](../screenshoot/git-push-org-master.png)
 
-**git checkout master**
+## git checkout master
 ![](../screenshoot/git-chk-master.png)
 
-**git branch new_branch**
+## git branch new_branch
 ![](../screenshoot/git-branch-newbrch.png)
 
-**git checkout -b sec_branch**
+## git checkout -b sec_branch
 ![](../screenshoot/branch-sec_branch.png)
 
-**git stash**
+## git stash
 ![](../screenshoot/git-stash.png)

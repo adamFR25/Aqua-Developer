@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    environment:
+    - postgres_pass="compose123"
+    - postgres_admin="admin123"
+  redis:
+    image: redis
+  app:
+    build: .
