@@ -1,4 +1,8 @@
 ## Insert tabel customers
+<<<<<<< HEAD
+=======
+<!-- ![Screenshot](../screenshoot/insert-customers.png) -->
+>>>>>>> 090f7837cf278f4e96bacec2b643c29548470765
 ![](https://github.com/adamFR25/Aqua-Developer/blob/master/day_3_RDB/screenshoot/insert_customers.png)
 
 ## Insert tabel orders
