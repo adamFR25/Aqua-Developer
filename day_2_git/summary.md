@@ -1,0 +1,2 @@
+## Pengalaman GIT
+Mungkin akan jadi pengalaman yang tidak terlupakan ketika muncul perintah autentikasi setelah melakukan “git push origin master” terhadap file yang sudah berubah dan di-commit. Awalnya saya kira autentikasi yang diminta adalah username beserta password akun Github, melainkan username Github dan token yang sudah pernah dibuat. Token ini merupakan hasil saya belajar memalui tutorial di Youtube. Untung para mentor di Aqua Developer sangat handal dalam menyelesaikan masalah ini sehingga tidak memakan waktu lama untuk memeperbaikinya.
