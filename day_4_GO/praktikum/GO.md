@@ -1,25 +1,25 @@
-Array
+## Array
 ![](../screenshoot/array2.png)
 
-Array setelah assign 
+## Array setelah assign 
 ![](../screenshoot/array1.png)
 
-Map
+## Map
 ![](../screenshoot/map1.png)
 
-Map setelah assign
+## Map setelah assign
 ![](../screenshoot/map2.png)
 
-slice
+## slice
 ![](../screenshoot/slice2.png)
 
-slice setelah assign
+## slice setelah assign
 ![](../screenshoot/slice1.png)
 
-struct 
+## struct 
 ![](../screenshoot/struct2.png)
 
-struct setelah assign
+## struct setelah assign
 ![](../screenshoot/struct1.png)
 
 ``

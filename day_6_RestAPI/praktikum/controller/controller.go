@@ -5,12 +5,13 @@ import (
 	"log"
 	"net/http"
 	"strconv"
+
 	// "fmt"
 	"github.com/labstack/echo/v4"
 )
 
 type Customer struct {
-	ID    int		`json:"id"`
+	ID    int `json:"id"`
 	Name  string
 	Email string
 }
@@ -23,6 +24,7 @@ var CustomerList = []Customer{
 		Email: "adam@gmail.com",
 	},
 }
+
 // CustomerList := []*Customer{}
 var LastID int = 2
 
@@ -99,9 +101,7 @@ func UpdateCustomer(c echo.Context) error {
 		result = append(result, tempCustomer)
 		// fmt.Println(result)
 	}
-	
 
-	
 	log.Println("Update user ID", result[index].ID)
 
 	return c.JSON(http.StatusAccepted, user)
