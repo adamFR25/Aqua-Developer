@@ -1,35 +1,36 @@
-**Insert tabel customers**
+## Insert tabel customers
 ![](../screenshoot/insert-customers.png)
 
-**Insert tabel orders**
+## Insert tabel orders
 ![](../screenshoot/insert-orders.png)
 
-**Insert tabel products**
+## Insert tabel products
 ![](../screenshoot/insert-products.png)
 
 
 
-**Delete untuk tabel customers**
+## Delete untuk tabel customers
 ![](../screenshoot/delete-customers.png)
 
-**Delete untuk tabel orders**
+## Delete untuk tabel orders
 ![](../screenshoot/delete-orders.png)
 
-**Delete untuk tabel products**
+## Delete untuk tabel products
 ![](../screenshoot/delete-products.png)
 
 
 
-**Update untuk tabel customers**
+## Update untuk tabel customers
 ![](../screenshoot/update-customers.png)
 
-**Update untuk tabel orders**
+## Update untuk tabel orders
 ![](../screenshoot/update-orders.png)
 
-**Update untuk tabelproducts**
+## Update untuk tabelproducts
 ![](../screenshoot/update-products.png)
 
 
-**Cross join tabel orders dengan customers**
+
+## Cross join tabel orders dengan customers
 ![](../screenshoot/crossjoin_order_customer.png)
 
