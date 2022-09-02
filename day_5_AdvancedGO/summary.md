@@ -1,0 +1,6 @@
+## Routine
+Hal menarik yang saya tandai adalah “routine”. Ada 3 jenis routine program yang mentor ajarkan yaitu sekuensial, concurrency, dan paralel. Dari ketiga hal tersebut hanya satu yang belum pernah saya terapkan sebelumnya baik di perkuliahan maupun projek-projek sebelumnya, yaitu concurrency.
+
+Adapun yang saya tangkap mengenai concurreny adalah mengerjakan lebih dari satu proses. Tentu saja terdengar seperti sistem paralel yang biasanya menggunakan thread untuk meng-handle masing-masing program. Ternyata concurrency berbeda dengan paralel. Concurrency menjalankan sebuah proses ketika proses lain sedang bekerja. Sederhananya concurrency akan mengeksekusi lebih dari satu program secara bersamaan dan mengeksekusinya sesuai dengan urutan masuknya program.
+
+Metode concurrent didalam pemrograman bertujuan untuk mengurangi beban processor saat melakukan multitasking. Dalam kasus ini dapat diumpamakan seperti pramusaji di restoran. Seorang pramusaji diharapkan dapat membawa banyak pesanan secara bersamaan dan membagikannya sesuai dengan urutan masuknya (pesanan). Jika sebuah restoran merekrut lebih banyak pramusaji untuk mengantarkan pesanan maka pengeluaran akan jadi lebih besar, sama halnya seperti processor ketika dibebani tugas yang banyak.
