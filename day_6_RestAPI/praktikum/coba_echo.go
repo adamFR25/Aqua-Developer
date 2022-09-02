@@ -1,13 +1,12 @@
 package main
 
 import (
-	"sample-app/controller"
+	"adam/controller"
 
 	"github.com/labstack/echo/v4"
 	// "github.com/labstack/echo/v4/middeleware"
 	"net/http"
 )
-
 
 func main() {
 	e := echo.New()
@@ -26,5 +25,5 @@ func main() {
 	cust.PUT("/:id", controller.UpdateCustomer)
 	cust.DELETE("/:id", controller.DeleteCustomer)
 	e.Logger.Fatal(e.Start("127.0.0.1:5002"))
-	
+
 }
