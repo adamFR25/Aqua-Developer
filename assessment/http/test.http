@@ -1,0 +1,15 @@
+GET http://localhost:5002/produk HTTP/1.1
+
+###
+GET http://localhost:5002/produk/aksesoris HTTP/1.1
+
+###
+GET http://localhost:5002/produk/5000,10000 HTTP/1.1
+
+
+###
+POST  http://localhost:5002/troli/indomie HTTP/1.1
+
+
+###
+POST  http://localhost:5002/troli/payment/5000 HTTP/1.1
