@@ -1,0 +1,886 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "E-Commerce API",
+    "contact": {}
+  },
+  "host": "localhost:5002",
+  "basePath": "/",
+  "securityDefinitions": {},
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/detail_produk/{nama_produk}": {
+      "get": {
+        "summary": "Tampilkan detail produk berdasarkan nama produk",
+        "tags": [
+          "Detail Produk"
+        ],
+        "operationId": "Tampilkandetailprodukberdasarkannamaproduk",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=UTF-8"
+        ],
+        "parameters": [
+          {
+            "name": "nama_produk",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "schema": {
+              "$ref": "#/definitions/Tampilkanproduksepatu"
+            },
+            "examples": {
+              "application/json; charset=UTF-8": {
+                "Nama_DP": "sepatu",
+                "Foto_DP": "\\src\\sepatu.jpg",
+                "Harga_DP": 10000,
+                "Deskripsi_DP": "sepatu bola"
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Fri, 09 Sep 2022 13:01:19 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "97"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/filter_kategori/{kategori}": {
+      "get": {
+        "summary": "Filter produk berdasarkan kategori",
+        "tags": [
+          "Filter Produk"
+        ],
+        "operationId": "Filterprodukberdasarkankategori",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=UTF-8"
+        ],
+        "parameters": [
+          {
+            "name": "kategori",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/Filterkategoriproduk%3Dmakanan"
+              }
+            },
+            "examples": {
+              "application/json; charset=UTF-8": [
+                {
+                  "Id_produk": 1,
+                  "nama_produk": "indomie",
+                  "harga": 2500,
+                  "kategori": "makanan",
+                  "Deskripsi": "makanan instan",
+                  "link_foto": "\\src\\indomie.jpg"
+                },
+                {
+                  "Id_produk": 2,
+                  "nama_produk": "kanzler",
+                  "harga": 3000,
+                  "kategori": "makanan",
+                  "Deskripsi": "sosis instan",
+                  "link_foto": "\\src\\kanzler.jpg"
+                },
+                {
+                  "Id_produk": 3,
+                  "nama_produk": "sari roti",
+                  "harga": 5000,
+                  "kategori": "makanan",
+                  "Deskripsi": "roti kemasan",
+                  "link_foto": "\\src\\sari roti.jpg"
+                }
+              ]
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Fri, 09 Sep 2022 13:03:51 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "410"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/filter_harga/{harga(batas bawah), harga(batas atas)}": {
+      "get": {
+        "summary": "Filter produk berdasarkan harga",
+        "tags": [
+          "Filter Produk"
+        ],
+        "operationId": "Filterprodukberdasarkanharga",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=UTF-8"
+        ],
+        "parameters": [],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/Filterhargaproduk%3E%3D2000dan%3C%3D5000"
+              }
+            },
+            "examples": {
+              "application/json; charset=UTF-8": [
+                {
+                  "Id_produk": 1,
+                  "nama_produk": "indomie",
+                  "harga": 2500,
+                  "kategori": "makanan",
+                  "Deskripsi": "makanan instan",
+                  "link_foto": "\\src\\indomie.jpg"
+                },
+                {
+                  "Id_produk": 2,
+                  "nama_produk": "kanzler",
+                  "harga": 3000,
+                  "kategori": "makanan",
+                  "Deskripsi": "sosis instan",
+                  "link_foto": "\\src\\kanzler.jpg"
+                },
+                {
+                  "Id_produk": 3,
+                  "nama_produk": "sari roti",
+                  "harga": 5000,
+                  "kategori": "makanan",
+                  "Deskripsi": "roti kemasan",
+                  "link_foto": "\\src\\sari roti.jpg"
+                }
+              ]
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Fri, 09 Sep 2022 13:05:16 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "410"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/list_produk": {
+      "get": {
+        "summary": "List semua produk",
+        "tags": [
+          "Listing Produk"
+        ],
+        "operationId": "Listsemuaproduk",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=UTF-8"
+        ],
+        "parameters": [],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/Listsemuaproduk"
+              }
+            },
+            "examples": {
+              "application/json; charset=UTF-8": [
+                {
+                  "nama_LP": "indomie",
+                  "harga_LP": 2500,
+                  "kategori_LP": "makanan",
+                  "foto_LP": "\\src\\indomie.jpg"
+                },
+                {
+                  "nama_LP": "kanzler",
+                  "harga_LP": 3000,
+                  "kategori_LP": "makanan",
+                  "foto_LP": "\\src\\kanzler.jpg"
+                },
+                {
+                  "nama_LP": "sari roti",
+                  "harga_LP": 5000,
+                  "kategori_LP": "makanan",
+                  "foto_LP": "\\src\\sari roti.jpg"
+                },
+                {
+                  "nama_LP": "kacamata",
+                  "harga_LP": 8000,
+                  "kategori_LP": "aksesoris",
+                  "foto_LP": "\\src\\kacamata.jpg"
+                },
+                {
+                  "nama_LP": "sepatu",
+                  "harga_LP": 10000,
+                  "kategori_LP": "aksesoris",
+                  "foto_LP": "\\src\\sepatu.jpg"
+                },
+                {
+                  "nama_LP": "topi",
+                  "harga_LP": 10000,
+                  "kategori_LP": "aksesoris",
+                  "foto_LP": "\\src\\topi.jpg"
+                }
+              ]
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Fri, 09 Sep 2022 13:07:36 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "566"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/tambah_troli/{nama_produk}": {
+      "post": {
+        "summary": "Tambahkan produk ke troli",
+        "tags": [
+          "Add to Cart"
+        ],
+        "operationId": "Tambahkanprodukketroli",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=UTF-8"
+        ],
+        "parameters": [
+          {
+            "name": "nama_produk",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "schema": {
+              "type": "array",
+              "default": "",
+              "items": {
+                "$ref": "#/definitions/Troli%3Atopi%2Ckanzler%2Csepatu"
+              }
+            },
+            "examples": {
+              "application/json; charset=UTF-8": [
+                {
+                  "id_troli": 6,
+                  "name_troli": "topi",
+                  "harga_troli": 10000,
+                  "kategori_troli": "aksesoris",
+                  "deskripsi_troli": "topi keren",
+                  "foto_troli": "\\src\\topi.jpg"
+                },
+                {
+                  "id_troli": 2,
+                  "name_troli": "kanzler",
+                  "harga_troli": 3000,
+                  "kategori_troli": "makanan",
+                  "deskripsi_troli": "sosis instan",
+                  "foto_troli": "\\src\\kanzler.jpg"
+                },
+                {
+                  "id_troli": 5,
+                  "name_troli": "sepatu",
+                  "harga_troli": 10000,
+                  "kategori_troli": "aksesoris",
+                  "deskripsi_troli": "sepatu bola",
+                  "foto_troli": "\\src\\sepatu.jpg"
+                }
+              ]
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Fri, 09 Sep 2022 13:10:12 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "450"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/clear_troli": {
+      "post": {
+        "summary": "Kosongkan troli",
+        "tags": [
+          "Add to Cart"
+        ],
+        "operationId": "Kosongkantroli",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=UTF-8"
+        ],
+        "parameters": [],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "schema": {
+              "type": "string",
+              "default": ""
+            },
+            "examples": {
+              "application/json; charset=UTF-8": "\"Troli dikosongkan\""
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Fri, 09 Sep 2022 13:11:34 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "20"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/troli/payment/{bayar}": {
+      "post": {
+        "summary": "Detail dan upload pembayaran",
+        "tags": [
+          "Bukti Pembayaran"
+        ],
+        "operationId": "Detaildanuploadpembayaran",
+        "deprecated": false,
+        "produces": [
+          "application/json; charset=UTF-8"
+        ],
+        "parameters": [
+          {
+            "name": "bayar",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted",
+            "schema": {
+              "$ref": "#/definitions/Pembayaransukses%3Atopi%2Ckanzler%2Csepatu"
+            },
+            "examples": {
+              "application/json; charset=UTF-8": {
+                "status": "Transaksi Sukses",
+                "total": 23000,
+                "bayar": 25000,
+                "kembali": 2000
+              }
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Fri, 09 Sep 2022 13:13:14 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "73"
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "string",
+              "default": ""
+            },
+            "examples": {
+              "application/json; charset=UTF-8": "\"Pembayaran tidak cukup\""
+            },
+            "headers": {
+              "Date": {
+                "type": "string",
+                "default": "Fri, 09 Sep 2022 13:14:24 GMT"
+              },
+              "Content-Length": {
+                "type": "string",
+                "default": "25"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Tampilkanproduksepatu": {
+      "title": "Tampilkanproduksepatu",
+      "example": {
+        "Nama_DP": "sepatu",
+        "Foto_DP": "\\src\\sepatu.jpg",
+        "Harga_DP": 10000,
+        "Deskripsi_DP": "sepatu bola"
+      },
+      "type": "object",
+      "properties": {
+        "Nama_DP": {
+          "type": "string"
+        },
+        "Foto_DP": {
+          "type": "string"
+        },
+        "Harga_DP": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Deskripsi_DP": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Nama_DP",
+        "Foto_DP",
+        "Harga_DP",
+        "Deskripsi_DP"
+      ]
+    },
+    "Tampilkanprodukindomie": {
+      "title": "Tampilkanprodukindomie",
+      "example": {
+        "Nama_DP": "indomie",
+        "Foto_DP": "\\src\\indomie.jpg",
+        "Harga_DP": 2500,
+        "Deskripsi_DP": "makanan instan"
+      },
+      "type": "object",
+      "properties": {
+        "Nama_DP": {
+          "type": "string"
+        },
+        "Foto_DP": {
+          "type": "string"
+        },
+        "Harga_DP": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Deskripsi_DP": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Nama_DP",
+        "Foto_DP",
+        "Harga_DP",
+        "Deskripsi_DP"
+      ]
+    },
+    "Tampilkanproduktopi": {
+      "title": "Tampilkanproduktopi",
+      "example": {
+        "Nama_DP": "topi",
+        "Foto_DP": "\\src\\topi.jpg",
+        "Harga_DP": 10000,
+        "Deskripsi_DP": "topi keren"
+      },
+      "type": "object",
+      "properties": {
+        "Nama_DP": {
+          "type": "string"
+        },
+        "Foto_DP": {
+          "type": "string"
+        },
+        "Harga_DP": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "Deskripsi_DP": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Nama_DP",
+        "Foto_DP",
+        "Harga_DP",
+        "Deskripsi_DP"
+      ]
+    },
+    "Filterkategoriproduk=makanan": {
+      "title": "Filterkategoriproduk=makanan",
+      "example": {
+        "Id_produk": 1,
+        "nama_produk": "indomie",
+        "harga": 2500,
+        "kategori": "makanan",
+        "Deskripsi": "makanan instan",
+        "link_foto": "\\src\\indomie.jpg"
+      },
+      "type": "object",
+      "properties": {
+        "Id_produk": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nama_produk": {
+          "type": "string"
+        },
+        "harga": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kategori": {
+          "type": "string"
+        },
+        "Deskripsi": {
+          "type": "string"
+        },
+        "link_foto": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id_produk",
+        "nama_produk",
+        "harga",
+        "kategori",
+        "Deskripsi",
+        "link_foto"
+      ]
+    },
+    "Filterkategoriproduk=aksesori": {
+      "title": "Filterkategoriproduk=aksesori",
+      "example": {
+        "Id_produk": 4,
+        "nama_produk": "kacamata",
+        "harga": 8000,
+        "kategori": "aksesoris",
+        "Deskripsi": "kacamta keren",
+        "link_foto": "\\src\\kacamata.jpg"
+      },
+      "type": "object",
+      "properties": {
+        "Id_produk": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nama_produk": {
+          "type": "string"
+        },
+        "harga": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kategori": {
+          "type": "string"
+        },
+        "Deskripsi": {
+          "type": "string"
+        },
+        "link_foto": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id_produk",
+        "nama_produk",
+        "harga",
+        "kategori",
+        "Deskripsi",
+        "link_foto"
+      ]
+    },
+    "Filterhargaproduk>=2000dan<=5000": {
+      "title": "Filterhargaproduk>=2000dan<=5000",
+      "example": {
+        "Id_produk": 1,
+        "nama_produk": "indomie",
+        "harga": 2500,
+        "kategori": "makanan",
+        "Deskripsi": "makanan instan",
+        "link_foto": "\\src\\indomie.jpg"
+      },
+      "type": "object",
+      "properties": {
+        "Id_produk": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nama_produk": {
+          "type": "string"
+        },
+        "harga": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kategori": {
+          "type": "string"
+        },
+        "Deskripsi": {
+          "type": "string"
+        },
+        "link_foto": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id_produk",
+        "nama_produk",
+        "harga",
+        "kategori",
+        "Deskripsi",
+        "link_foto"
+      ]
+    },
+    "Filterhargaproduk>=5000dan<=10000": {
+      "title": "Filterhargaproduk>=5000dan<=10000",
+      "example": {
+        "Id_produk": 3,
+        "nama_produk": "sari roti",
+        "harga": 5000,
+        "kategori": "makanan",
+        "Deskripsi": "roti kemasan",
+        "link_foto": "\\src\\sari roti.jpg"
+      },
+      "type": "object",
+      "properties": {
+        "Id_produk": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nama_produk": {
+          "type": "string"
+        },
+        "harga": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kategori": {
+          "type": "string"
+        },
+        "Deskripsi": {
+          "type": "string"
+        },
+        "link_foto": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id_produk",
+        "nama_produk",
+        "harga",
+        "kategori",
+        "Deskripsi",
+        "link_foto"
+      ]
+    },
+    "Filterhargaproduk=5000": {
+      "title": "Filterhargaproduk=5000",
+      "example": {
+        "Id_produk": 3,
+        "nama_produk": "sari roti",
+        "harga": 5000,
+        "kategori": "makanan",
+        "Deskripsi": "roti kemasan",
+        "link_foto": "\\src\\sari roti.jpg"
+      },
+      "type": "object",
+      "properties": {
+        "Id_produk": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "nama_produk": {
+          "type": "string"
+        },
+        "harga": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kategori": {
+          "type": "string"
+        },
+        "Deskripsi": {
+          "type": "string"
+        },
+        "link_foto": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Id_produk",
+        "nama_produk",
+        "harga",
+        "kategori",
+        "Deskripsi",
+        "link_foto"
+      ]
+    },
+    "Listsemuaproduk": {
+      "title": "Listsemuaproduk",
+      "example": {
+        "nama_LP": "indomie",
+        "harga_LP": 2500,
+        "kategori_LP": "makanan",
+        "foto_LP": "\\src\\indomie.jpg"
+      },
+      "type": "object",
+      "properties": {
+        "nama_LP": {
+          "type": "string"
+        },
+        "harga_LP": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kategori_LP": {
+          "type": "string"
+        },
+        "foto_LP": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "nama_LP",
+        "harga_LP",
+        "kategori_LP",
+        "foto_LP"
+      ]
+    },
+    "Troli:topi,kanzler,sepatu": {
+      "title": "Troli:topi,kanzler,sepatu",
+      "example": {
+        "id_troli": 6,
+        "name_troli": "topi",
+        "harga_troli": 10000,
+        "kategori_troli": "aksesoris",
+        "deskripsi_troli": "topi keren",
+        "foto_troli": "\\src\\topi.jpg"
+      },
+      "type": "object",
+      "properties": {
+        "id_troli": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "name_troli": {
+          "type": "string"
+        },
+        "harga_troli": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kategori_troli": {
+          "type": "string"
+        },
+        "deskripsi_troli": {
+          "type": "string"
+        },
+        "foto_troli": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id_troli",
+        "name_troli",
+        "harga_troli",
+        "kategori_troli",
+        "deskripsi_troli",
+        "foto_troli"
+      ]
+    },
+    "Pembayaransukses:topi,kanzler,sepatu": {
+      "title": "Pembayaransukses:topi,kanzler,sepatu",
+      "example": {
+        "status": "Transaksi Sukses",
+        "total": 23000,
+        "bayar": 25000,
+        "kembali": 2000
+      },
+      "type": "object",
+      "properties": {
+        "status": {
+          "type": "string"
+        },
+        "total": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "bayar": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "kembali": {
+          "type": "integer",
+          "format": "int32"
+        }
+      },
+      "required": [
+        "status",
+        "total",
+        "bayar",
+        "kembali"
+      ]
+    }
+  },
+  "tags": [
+    {
+      "name": "Detail Produk"
+    },
+    {
+      "name": "Filter Produk"
+    },
+    {
+      "name": "Listing Produk"
+    },
+    {
+      "name": "Add to Cart"
+    },
+    {
+      "name": "Bukti Pembayaran"
+    }
+  ]
+}
