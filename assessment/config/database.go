@@ -1,32 +1,40 @@
 package config
 
 import (
+	"fmt"
+	"log"
+
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"gorm.io/gorm/schema"
 )
 
-var DB *gorm.DB
+type Database struct {
+	Host     string
+	User     string
+	Password string
+	Dbname   string
+	Port     string
+	Sslmode  string
+	TimeZone string
+}
 
-func ConnectDB() {
-	// host := "localhost"
-	// username := "postgres"
-	// password := "database123"
-	database := "e_commerce"
-	// port := "5432"
-	// sslmode := "disable"
+// var DB *gorm.DB
 
-	// dsn := "host=" + host + "user=" + username + "password=" + password + "dbname=" + database + "port=" + port + "sslmode=disable TimeZone=Asia/Shanghai"
-	var dsn string = "host=localhost user=postgres password=database123 dbname=e_commerce port=5432 sslmode=disable TimeZone=Asia/Jakarta"
-	var err error
+func ConnectDB(database *Database) (gorm.DB, error) {
+	
+	dsn := fmt.Sprintf("host=%s user=%s password=%s dbname=%s port=%s sslmode=%s TimeZone=%s",
+		database.Host, database.User, database.Password, database.Dbname, database.Port, database.Sslmode, database.TimeZone)
+	
 
-	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{
+	DB, err := gorm.Open(postgres.Open(dsn), &gorm.Config{
 		NamingStrategy: schema.NamingStrategy{
 			TablePrefix: "public.",
 		},
 	})
-
 	if err != nil {
-		panic("Can't connect to database" + database + "")
+		log.Panic("error ", dsn)
 	}
+
+	return DB, nil
 }

@@ -1,10 +1,9 @@
 package controller
 
 import (
-	// "tes/config"
-
 	"log"
 	"net/http"
+	"os"
 	"strconv"
 	"strings"
 	"tes/config"
@@ -14,24 +13,68 @@ import (
 	// "gorm.io/gorm"
 )
 
-func GetAllProduk(c echo.Context) (err error) {
-	config.ConnectDB()
-	DB := config.DB
-	var produk []entity.Produk
+var database = &config.Database{
+	Host:     os.Getenv("HOST"),
+	User:     os.Getenv("USER"),
+	Password: os.Getenv("PASSWORD"),
+	Dbname:   os.Getenv("DBNAME"),
+	Port:     os.Getenv("PORT"),
+	Sslmode:  os.Getenv("SSLMODE"),
+	TimeZone: os.Getenv("TIMEZONE"),
+}
 
-	result := DB.Find(&produk)
+func GetDetailProduk(c echo.Context) (err error) {
+
+	DB, err := config.ConnectDB(database)
+	var produk entity.Produk
+
+	detail := c.Param("nama_produk")
+	result := DB.Where("nama_produk = ?", detail).Find(&produk)
 	errDB := result.Error
+
+	DP := entity.DetailProduk{
+		Nama_DP:      produk.Nama_produk,
+		Foto_DP:      produk.Foto,
+		Harga_DP:     produk.Harga,
+		Deskripsi_DP: produk.Deskripsi,
+	}
+
 	if err != nil {
 		log.Println("cannot Listing produk", errDB)
 		return c.JSON(http.StatusBadRequest, errDB)
 	}
 
-	return c.JSON(http.StatusAccepted, produk)
+	return c.JSON(http.StatusAccepted, DP)
+}
+
+func GetListProduk(c echo.Context) (err error) {
+	DB, err := config.ConnectDB(database)
+	var produk []entity.Produk
+
+	result := DB.Find(&produk)
+	errDB := result.Error
+	temp := entity.ListProduk{}
+	LP := []entity.ListProduk{}
+
+	if err != nil {
+		log.Println("cannot get list of product", errDB)
+		return c.JSON(http.StatusBadRequest, errDB)
+	}
+
+	for key := 0; key < len(produk); key++ {
+		temp.Nama_LP = produk[key].Nama_produk
+		temp.Foto_LP = produk[key].Foto
+		temp.Harga_LP = produk[key].Harga
+		temp.Kategori_LP = produk[key].Kategori
+
+		LP = append(LP, temp)
+	}
+
+	return c.JSON(http.StatusAccepted, LP)
 }
 
 func GetByKategori(c echo.Context) (err error) {
-	config.ConnectDB()
-	DB := config.DB
+	DB, err := config.ConnectDB(database)
 	var produk []entity.Produk
 
 	kat := c.Param("kategori")
@@ -46,8 +89,7 @@ func GetByKategori(c echo.Context) (err error) {
 }
 
 func GetByRange(c echo.Context) (err error) {
-	config.ConnectDB()
-	DB := config.DB
+	DB, err := config.ConnectDB(database)
 	var produk []entity.Produk
 
 	str := c.Param("harga")
@@ -66,8 +108,7 @@ func GetByRange(c echo.Context) (err error) {
 var Cart = []entity.Troli{}
 
 func AddTroli(c echo.Context) (err error) {
-	config.ConnectDB()
-	DB := config.DB
+	DB, err := config.ConnectDB(database)
 
 	var produk entity.Produk
 
@@ -84,6 +125,13 @@ func AddTroli(c echo.Context) (err error) {
 	return c.JSON(http.StatusAccepted, Cart)
 }
 
+func ClearTroli(c echo.Context) (err error) {
+
+	Cart = nil
+
+	return c.JSON(http.StatusAccepted, "Troli dikosongkan")
+}
+
 func Bayar(c echo.Context) (err error) {
 	res := c.Param("bayar")
 	pay, _ := strconv.Atoi(res)
@@ -94,15 +142,19 @@ func Bayar(c echo.Context) (err error) {
 	}
 
 	chg := pay - Total
-	
-	result := entity.Payment{
 
+	result := entity.Payment{
+		Status:        "Transaksi Sukses",
 		Total_troli:   Total,
 		Bayar_troli:   pay,
 		Kembali_troli: chg,
 	}
-	if pay < Total{
-		return c.JSON(http.StatusBadRequest, "Uang tidak cukup")
+	if pay < Total {
+		return c.JSON(http.StatusBadRequest, "Pembayaran tidak cukup")
+	}
+
+	if Total == 0 {
+		return c.JSON(http.StatusBadRequest, "Troli masih kosong")
 	}
 
 	return c.JSON(http.StatusAccepted, result)

@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "cb7c07e8-68dd-427f-9c86-ed6b2f8412a9",
+		"name": "E-Commerce API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Detail Produk",
+			"item": [
+				{
+					"name": "nama_produk",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5002/detail_produk/sepatu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"detail_produk",
+								"sepatu"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Filter Produk",
+			"item": [
+				{
+					"name": "kategori",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5002/filter_kategori/aksesoris",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"filter_kategori",
+								"aksesoris"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "harga",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5002/filter_harga/2000,5000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"filter_harga",
+								"2000,5000"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Listing Produk",
+			"item": [
+				{
+					"name": "all produk",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5002/list_produk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"list_produk"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Add to Cart",
+			"item": [
+				{
+					"name": "nama_produk",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:5002/tambah_troli/sepatu",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"tambah_troli",
+								"sepatu"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "clear_cart",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5002/clear_troli",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"clear_troli"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Bukti Pembayaran",
+			"item": [
+				{
+					"name": "bayar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5002/troli/payment/25000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5002",
+							"path": [
+								"troli",
+								"payment",
+								"25000"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

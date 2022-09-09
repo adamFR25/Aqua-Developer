@@ -1,15 +1,24 @@
-GET http://localhost:5002/produk HTTP/1.1
-
-###
-GET http://localhost:5002/produk/aksesoris HTTP/1.1
-
-###
-GET http://localhost:5002/produk/5000,10000 HTTP/1.1
+GET http://localhost:5002/detail_produk/sepatu HTTP/1.1
 
 
 ###
-POST  http://localhost:5002/troli/indomie HTTP/1.1
+GET  http://localhost:5002/list_produk HTTP/1.1
 
 
 ###
-POST  http://localhost:5002/troli/payment/5000 HTTP/1.1
+GET http://localhost:5002/filter_kategori/aksesoris HTTP/1.1
+
+###
+GET http://localhost:5002/filter_harga/2000,5000 HTTP/1.1
+
+
+###
+POST  http://localhost:5002/tambah_troli/topi HTTP/1.1
+
+
+###
+POST  http://localhost:5002/clear_troli
+
+
+###
+POST  http://localhost:5002/troli/payment/25000 HTTP/1.1
