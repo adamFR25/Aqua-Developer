@@ -138,7 +138,7 @@
         }
       }
     },
-    "/filter_harga/{harga(batas bawah), harga(batas atas)}": {
+    "/filter_harga/{harga}": {
       "get": {
         "summary": "Filter produk berdasarkan harga",
         "tags": [
@@ -149,7 +149,15 @@
         "produces": [
           "application/json; charset=UTF-8"
         ],
-        "parameters": [],
+        "parameters": [
+          {
+            "name": "harga",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": ""
+          }
+        ],
         "responses": {
           "202": {
             "description": "Accepted",
